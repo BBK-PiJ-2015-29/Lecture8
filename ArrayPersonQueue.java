@@ -12,17 +12,34 @@ public class ArrayPersonQueue implements PersonQueue {
 		for (int i = 0; i < queue.length; i++) {
 			if (queue[i] == null) {
 				queue[i] = person;
+				size++;
+				break;
 			}
 		}
+		
 	}
 	
 	public Person retrieve() {
-		Person[] temp = new Person[queue.length - 1];
-		Person head = queue[0];
-		for (int i = 0; i < temp.length; i++) {
-			temp[i] = queue[i+1];
+		Person[] temp = new Person[size-1];
+		Person head = null;
+		if(size = 0) {
+			System.out.println("Queue is empty");
+			return head;
 		}
+		if(size > 1){
+			head = queue[0];
+			for (int i = 1; i < size; i++) {
+				temp[i-1] = queue[i];
+			}
+		}
+		
 		queue = temp;
 		return head;
 	}
 }
+
+	if(size > 1){
+		for (int i = 1; i < size; i++) {
+			temp[i-1] = queue[i];
+		}
+	}
