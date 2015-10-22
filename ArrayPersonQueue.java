@@ -21,12 +21,17 @@ public class ArrayPersonQueue implements PersonQueue {
 	
 	public Person retrieve() {
 		// create new temp array to hold the values of the new shorter array
-		Person[] temp = new Person[size-1];
+		Person[] temp;
+		if(size > 0) {
+			temp = new Person[size-1];
+		}
+		else {
+			temp = new Person[1];
+		}
 		//initialise a variable to hold the desired person first in the queue
-		Person head = null;
+		Person head = new Person(0, "NoOne");
 		//check to see if there is anyone in the queue;
 		if(size == 0) {
-			System.out.println("Queue is empty");
 			return head;
 		}
 		else if(size >= 1){

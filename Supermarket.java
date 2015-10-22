@@ -21,6 +21,7 @@ public class Supermarket {
 		servePerson();
 		servePerson();
 		servePerson();
+		servePerson();
 		
 	}
 	
@@ -29,12 +30,15 @@ public class Supermarket {
 	}
 	
 	public void servePerson() {
-		Person served = this.cashier.retrieve();
-		System.out.println("Name: " + served.getName());
-		System.out.println("Age:  " + served.getAge());
 		int currentSize = this.cashier.getSize();
-		if (currentSize == 0) {
-			System.out.println("The queue is now empty");
+		Person served = this.cashier.retrieve();
+		
+		if(currentSize != 0){
+			System.out.println("Name: " + served.getName());
+			System.out.println("Age:  " + served.getAge());
+		}
+		else {
+			System.out.println("The queue is empty");
 		}
 	}
 	
