@@ -1,6 +1,6 @@
 public class Supermarket {
 	
-	private PersonQueue cashier;
+	private ArrayPersonQueue cashier;
 	
 	public static void main(String[] args) {
 		Supermarket tesco = new Supermarket();
@@ -8,7 +8,7 @@ public class Supermarket {
 	}
 	
 	public void launch() {
-		cashier = new PointerPersonQueue();
+		cashier = new ArrayPersonQueue();
 		
 		Person p1 = new Person(20, "Brian");
 		Person p2 = new Person(30, "Cuthbert");
@@ -32,6 +32,10 @@ public class Supermarket {
 		Person served = this.cashier.retrieve();
 		System.out.println("Name: " + served.getName());
 		System.out.println("Age:  " + served.getAge());
+		int currentSize = this.cashier.getSize();
+		if (currentSize == 0) {
+			System.out.println("The queue is now empty");
+		}
 	}
 	
 }

@@ -20,26 +20,37 @@ public class ArrayPersonQueue implements PersonQueue {
 	}
 	
 	public Person retrieve() {
+		// create new temp array to hold the values of the new shorter array
 		Person[] temp = new Person[size-1];
+		//initialise a variable to hold the desired person first in the queue
 		Person head = null;
-		if(size = 0) {
+		//check to see if there is anyone in the queue;
+		if(size == 0) {
 			System.out.println("Queue is empty");
 			return head;
 		}
-		if(size > 1){
+		else if(size >= 1){
+			//assign the first value to head 
 			head = queue[0];
+			//populate the temp array with the previous array minus the first 
 			for (int i = 1; i < size; i++) {
 				temp[i-1] = queue[i];
 			}
+			size--;
+			// repopulate queue array with the temp array
+			for (int i = 0; i < size; i++) {
+				queue[i] = temp[i];
+			}
 		}
+		// check if the item to be returned is the only item in the list
 		
-		queue = temp;
+		
+		
 		return head;
+	}
+	//getter for size
+	public int getSize() {
+		return this.size;
 	}
 }
 
-	if(size > 1){
-		for (int i = 1; i < size; i++) {
-			temp[i-1] = queue[i];
-		}
-	}
